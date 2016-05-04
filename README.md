@@ -1,5 +1,7 @@
 # Alexandria-House
 
 
-SPEC project/
+SPEC project/prototype/
 alexandriahouse.org
+
+this is my scribble pad
