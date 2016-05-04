@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Alexandria House</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="img/logo.jpg" />
+  <style>
+  body {
+      font: 400 17px/1.8 Lato, ,'Montserrat', sans-serif;
+      /*color: #777;*/
+      color: rgba(24, 84, 56, 0.91);
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;      
+      font-size: 20px;
+      color: #111;
+  }
+  .container {
+      padding: 80px 120px;
+  }
+
+  #logo {
+    opacity: .96;
+  }
+  @media (max-width: 900px) {
+    #logo{
+        display: none;
+    } 
+  }
+  .person {
+      border: 5px solid transparent;
+      margin: 0 0 25px 0;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+
+  .carousel-inner {
+    max-height: 920px;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(70%);
+      -moz-filter: grayscale(70%);
+      filter: grayscale(70%); 
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      max-height: 920px;
+  }
+  .carousel-caption, .carousel-caption h3 {
+      color: #fff !important;
+      text-align: top;
+      text-shadow: 0 0 0 4px rgba (0,0,0,.97);
+      font-size: 120%;
+  }
+  @media (max-width: 900px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  #womenSpeak {
+    padding: -42px, 17%,17px, 17%;
+    margin: 42px;
+    outline: 2px solid rgba(194,222,218,1);
+  }
+  .bg-1 {
+      background: #EBEFEF;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 520px;
+      -webkit-filter: grayscale(17%);
+      -moz-filter: grayscale(17%);
+      filter: grayscale(17%);
+  }  
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: rgba(4.2,42,42,0.94);
+      text-shadow: 1px 2px 1px 1px rgba(0,0,0,1);
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.92;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color:rgba(194,222,218,1)!important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: rgba(194,222,218,1) !important;
+  }
+  .dropdown-menu li a {
+      color: red !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  #donate, #volunteer{
+    width: 69%;
+    margin: 42px auto;
+    text-align: center;
+  }
+  footer {
+      background-color: rgba(194,222,218,1);
+      color: #f5f5f5;
+      padding: 32px;
+  }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }  
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage" style="margin-left: 142px"><img id="logo" src="img/logo.jpg" style="color: rgba(200,147,77,1);position: absolute; height: 94px;width: 94px;margin: -12px 0 0 -142px;">Alexandria House</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">HOME</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#band">ABOUT</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">News & Photos</a></li>
+            <li><a href="#">Supporters <br>& Partners</a></li>
+            <li><a href="#">Staff</a></li> 
+          </ul>
+        </li>
+        <li><a href="#tour">EVENTS</a></li>
+        <li><a href="#contact">CONNECT</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-heart" style="color: red;font-size: 142%"></span>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#donate">DONATE</a></li> 
+            <li><a href="#volunteer">Volunteer</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="img/jennifer_judy_harley(cute!).jpg" alt="New York" width="900" height="500">
+        <div class="carousel-caption">
+          <h2>Alexandria House is a transitional residence for single women and women with children in the process of moving from emergency shelter to permanent housing. </h2>
+          <p>The benefits are countless!</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="img/kidsDonate.jpg" alt="Chicago" width="900" height="500">
+        <div class="carousel-caption">
+          <h2  class="text-center">Welcome to Alexandria House!</h2>  
+          <h2  style="color: rgba(194,222,218,1); ">..a house of hospitality for residents and neighbors alike.</h2>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="img/kidsInFront.jpg" alt="Los Angeles" width="900" height="500">
+        <div class="carousel-caption">
+          <h2  style="color: rgba(252,252,251,1);">Over 80% of the women who have moved through the program have <strong>succeeded</strong> in securing financial stability and permanent housing.</h2>
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- Container (The Band Section) -->
+<div id="band" class="container text-center">
+<div id="womenSpeak">
+  <h2 style="color: rgba(200,147,77,1);">8th Annual Womenspeak</h2>
+  <p>
+Tuesday, May 3, 2016 ~ 12:00pm - 2:00pm<br>
+Doors open at 11:30am<br>
+Ebell of Los Angeles<br>
+Special Guest Speaker: Kamala Lopez<br>
+(Please visit our WomenSpeak page for more information)</p>
+</div>
+<br>
+<img src="img/20years.jpg">
+<br>
+<h3>Alexandria House</h3>
+<p>
+Alexandria House is a transitional residence for single women and women with children in the process of moving from emergency shelter to permanent housing. We provide hospitality to approximately 24 women and children depending on family size. Women living in Alexandria House benefit from a supportive community and an encouraging environment. 
+<br>
+Residents meet weekly with a Resident Services Coordinator (Case Manager) to ensure that they are making progress towards their established goals, as well as to identify their need for services and resources.
+<br>
+Weekly house meetings also provide an opportunity to share personal successes and hopes, and at the same time build community. 
+<br>
+Alexandria House's transitional housing program offers financial literacy, goal setting, childcare, counseling, healthcare, and access to other resources such as employment assistance, education, legal counsel, advocacy, and skill-building.
+<br>
+Over 80% of the women who have moved through the program have succeeded in securing financial stability and permanent housing.</p>
+
+<br>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="text-center"><strong>People</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="img/dsc00080.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Guitarist and Lead Vocalist</p>
+        <p>Loves long walks on the beach</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Place</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src="img/houseFront.jpeg" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="demo2" class="collapse">
+        <p>Drummer</p>
+        <p>Loves drummin'</p>
+        <p>Member since 1988</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <p class="text-center"><strong>Home</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="img/jennifer_judy_harley(cute!).jpg" class="img-circle person" alt="Random Name" width="255" height="255">
+      </a>
+      <div id="demo3" class="collapse">
+        <p>Bass player</p>
+        <p>Loves math</p>
+        <p>Member since 2005</p>
+      </div>
+    </div>
+  </div>
+  <br>
+<br>
+In response to the compelling needs of the women and children living in the house, as well as the neighborhood needs before us each day, the goal of Alexandria House is to be a community-oriented transitional house and neighborhood center which is intentionally multicultural, antiracist and where the needs of women who are economically poor are central.</p>
+
+<p style="text-align: center;"><br>
+Services include:
+- Permanent Housing Assistance 
+- Intensive Case Management
+- Employment Assistance
+- Financial Literacy
+- Food Pantry
+- On-site Child Care 
+- After School Tutoring
+- Adult & Children's Support Groups
+- Community Information & Referral
+- Community Workshops
+- "Soul Sistas Network" - Past Residents Alumni Group
+- Past Residents Support Services 
+- Community Thrift Shop (2nd Saturday of each month)
+  </p>
+
+
+  <br>
+  <h2 >Welcome to Alexandria House!</h2>
+<p>
+Founded in 1996, Alexandria House is a non-profit transitional residence and house of hospitality providing safe and supportive housing for women and children in the process of moving from emergency shelter to permanent housing. Located in the densely populated and ethnically diverse Mid-Wilshire area, Alexandria House also serves its broader neighborhood community by providing educational and enrichment opportunities for residents and neighbors alike.
+</p>
+<img src="img/530_divider-green.jpg">
+<iframe width="100%" height="580" src="https://www.youtube.com/embed/kiJBurzqhHc" frameborder="17" allowfullscreen></iframe>
+
+
+</div>
+
+<!-- Container (TOUR Section) -->
+<div id="tour" class="bg-1">
+  <div class="container">
+    <h2 class="text-center">UPCOMING EVENTS!!</h2>
+    <p class="text-center">8th Annual Womenspeak<br> Remember to book your tickets!</p>
+    <ul class="list-group">
+      <li class="list-group-item">May <span class="label label-danger">8th Annual Womenspeak - Tuesday May 3</span> <span class="label label-danger">Remember to book your tickets!</span>
+     <span class="label label-danger">Monthly Thrift Sale - Saturday May 14</span></li> 
+      <li class="list-group-item">June <span class="labe - l label-danger">Tea Party!! - Sunday June 5</span></li> 
+    </ul>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="img/save_the_date1.jpg" alt="8th Annual Womenspeak" width="400" height="300">
+         
+          <p><strong>8th Annual Womenspeak<br>Tuesday,<br> May 3, 2016 </strong></p><br><p>~ 12:00pm - 2:00pm<br>
+Doors open at 11:30am<br>
+Ebell of Los Angeles<br>
+Special Guest Speaker: Kamala Lopez<br>
+(Please visit our WomenSpeak page for more information)
+          </p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="img/May_14_2016.jpg" alt="Thrift Sale" width="400" height="300">
+          <img src="img/300_sale-300x209.jpg" width="400">
+          <p><strong>Alexandria House Monthly<br>Thrift Sale</strong></p>
+          <p>Saturday May 14, 2016</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Come Support Us</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="img/Tea-June_2016.jpg" alt="Tea Party" width="400" height="300">
+          <p>please join us<br> for<br><strong>Tea and a Tour</strong></p>
+          <p>of</p>
+          <p><strong>Alexandria House</strong></p>
+          <p>Sunday June 5, 2016</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">R S V P</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets</label>
+              <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+              <button type="submit" class="btn btn-block">Pay 
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+  <h3 class="text-center">Connect</h3>
+  <p class="text-center"><em>Together we grow love!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Want to Enlist?</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Bay Area/intl. HQ</p>
+      <p><span class="glyphicon glyphicon-phone"></span>415.555.1212</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>support@gardenarmy.org</p>    
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>  
+    </div>
+  </div>
+ 
+<h2 class="text-center">BLOG SPOT life@ Alexandria House
+</h2>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Love</a></li>
+    <li><a data-toggle="tab" href="#menu1">Grow</a></li>
+    <li><a data-toggle="tab" href="#menu2">Build</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2>Love</h2>
+      <p>Things we love in, around, and about the house..</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h2>Grow</h2>
+      <p>Everything grows with love!!</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h2>Community</h2>
+      <p>Build beautiful, practical, functional foundations for life..</p>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="googleMap">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.1255426125804!2d-118.29973248478453!3d34.0662958806021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c762e945bf07%3A0x3a17b18c3c184480!2sAlexandria+House!5e0!3m2!1sen!2sus!4v1462299622867" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen setOptions({draggable:false})></iframe>
+</div>
+<!-- Add Google Maps -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+/*var myCenter = new google.maps.LatLng(34.06672668457031, -118.29793548583984);
+
+function initialize() {
+var mapProp = {
+center:myCenter,
+zoom:14,
+scrollwheel:false,
+draggable:false,
+directions:true,
+mapTypeId:google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+position:myCenter, value:"Alexandria House"
+});
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+*/
+</script>
+
+
+<div id="donate">
+<br>
+  <h3 class="text-center">Welcome to Alexandria House!<br><br><br>
+
+Founded in 1996, Alexandria House is a non-profit transitional residence and house of hospitality providing safe and supportive housing for women and children in the process of moving from emergency shelter to permanent housing. Located in the densely populated and ethnically diverse Mid-Wilshire area, Alexandria House also serves its broader neighborhood community by providing educational and enrichment opportunities for residents and neighbors alike.</h3>  
+  <h1 style="text-align: center;">Want to Make a Financial Gift to Alexandria House?</h1>
+  <h3>DONATE</h3>
+<h2>Your generous donation supports our work 
+with women and children!</h2>
+
+<p>
+
+Thank you for supporting our work! You can make a donation through our secure PayPal account. You may also call us to make a donation! Thank You!
+
+PayPal - The safer, easier way to pay online!
+Donations for our Families....
+We are so excited when our families move out! And, now we want to help them create their home. Please contact us if you and/or your family and friends are able to help with much needed household items.  Just think of all the things you need to start with!  Here are a few ideas:
+ 
+ Toasters
+ Dishes
+ Flatware
+ Pots and pans
+ Glasses
+ Microwave Oven
+ Blenders
+ Target Gift Cards
+
+
+Please email us at donate@alexandriahouse.org
+
+Program Wish List
+
+40 - Folding chairs
+
+30 - 6' Folding tables
+</p>
+
+</div>
+
+<div id="volunteer">
+  <h1>Volunteer Opportunities</h1>
+<h2>
+Partners In Service: WE NEED YOU!!</h2>
+<p>Volunteer Orientations will be held every 1st Tuesday of the month at 7:00pm and every 3rd Sunday of the month at 10:30am. Please RSVP to Yajaira@Alexandriahouse.org
+
+PLEASE NOTE: No orientation on Sunday, April 17, 2016
+Our volunteer opportunities are listed below, however these are currently our top priority:
+ 
+We need volunteers for Thursday nights from 7:30pm - 10:00pm for about 12 kids ranging in ages 1 to 13 years old. Must be ready to assume control and organize their free time. We would like 3 volunteers.
+ 
+We need volunteers for Childcare Monday - Thursday 9:00am - 2:00pm.  We are looking for volunteers who are capable of working with toddlers and kids up to age 4.
+ 
+We need volunteers for the Afterschool program Monday - Friday  3:30pm - 5:30pm.  Volunteers should be at least high school age but we may consider middle schoolers.
+
+We need Tutors for the Teen Program Monday - Friday  5:30pm - 8:00pm. Volunteers should be willing to meet with student/s they are tutoring once/twice a week for one hour. 
+ 
+Thank you for your consideration and support!</p>
+
+  <p>Top Chef – The number one requested volunteer service is cooking for a night. It is a wonderful treat for women living in the house when volunteers come to cook dinner. Just like you, they have busy days with work, school and kids and can use a “night off” every once in a while. Bring food in, cook in our kitchen...make it work for you knowing that it will definitely work for us!
+
+Thrift Sale – Please don't forget our neighborhood thrift sale when cleaning out your closets or updating your décor. We will gladly take your gently used items and turn them into profit for the house. Don't forget to shop there, too! There are great bargains to be had! (Every 2nd Saturday of the month, 9am – Noon).
+ 
+After-School & Teen Programs – We always need volunteers to help with our programs for children and youth. You don't need special skills or equipment, just bring your love of children, learning and play.
+
+Drivers Needed! – Many times our residents need rides to appointments or job interviews and sometimes our afterschool kids need rides to field trips. Can you help? If you're a licensed, insured driver, we need you!
+ 
+Target Gift Cards – We create a home-like environment by celebrating the important milestones in residents lives: birthday, graduations, special days. Rather than shop for gifts, we have found that residents feel more empowered by selecting what they need for themselves or for their children. Target gift cards in $20 amounts are our gift of choice and can always use them.
+
+Host a Fund Raiser! – We are always looking for new ways to increase our
+supporters. We have the ideas and ability—you provide the friends!
+ 
+What’s Your Talent? – Maybe you have a special talent or ability and can share your gift with us! Let us know if you have a talent you would like to share!</p>
+
+</div>
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="HOME">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <a href="http://www.alexandriahouse.org/">www.alexandriahouse.org</a> 
+  <h1>logos of contributers...links<br>Donate - Volunteer - Contribute</h1>
+</footer>
+
+
+<!--
+ALEXANDRIA HOUSE
+2015-2016 Board Members 
+
+Adrian Anderson - Inspirational speaker, philanthropist, member of the Recording Academy and beauty expert. 
+
+Vivian Becerra - Admissions Manager at National University and Higher Education Advocate, Mount St, Mary's Unviersity Alum. 
+
+Nancy Berlin - Former Director of the California Partnership and Project Coordinator of the Los Angeles Coalition to End Hunger & Homelessness. Currently Policy Director of California Association of Nonprofits (AH Founding Member). 
+
+Ouida Joi Cooper-Rodriguez - Director of Programs & Community Engagement, Alexandria House (Associate Member).
+
+Lenore Navarro Dowling - Professor of English at Rio Hondo College in Whittier. She is a member of the Immaculate Heart Community (AH Founding Member).    
+
+Caroline Fitzgerald - Licensed Hypnotherapist, leads support groups at Alexandria House. Caroline serves as President of the Board.
+
+Kim Fay - Novelist and non-fiction author, AH Teen Program volunteer. 
+
+Kelly Hill - Fashion Industry Stylist, Previous volunteer for AH Teen Program. 
+
+Erica Moore-Burton - Principal, Legal Executive Search, Round Hill Search, Founder of Outstanding Mother's Gathering (OMG). 
+
+Ann Mulvihill - Homemaker, grandmother, volunteer. Hosts Introductory Tea Parties and Holiday Events for Alexandria House. 
+ 
+Yanti Palleschi - Mother, former Immigration Attorney, Volunteer. 
+
+Wilma Ramirez - Graduate of Mount St. Mary's College with a B.A. in Liberal Studies, currently teaches 1st grade in Cudahy. Prior to this position, Wilma was the  Coordinator of the After School Homework Assistance Program. She is the first recipient of Alexandria House’s “Achievement in Education” Award that was presented in August 2003.
+
+Theresa Simpson, Financial Empowerment Coordinator, Alexandria House (Founding Member).  
+
+Diane Sunderland - Community volunteer, National Council of Jewish Women. She currently serves as Treasurer of the Board.
+
+Judy Vaughan - Executive Director, Alexandria House Founder 
+
+Sunnie Yanez - Director of Permanent Housing & Supportive Services, Alexandria House (Associate Member).
+
+-->
+
+</body>
+</html>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+})
+</script>
